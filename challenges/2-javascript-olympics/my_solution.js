@@ -26,19 +26,11 @@ function addWinToAthlete (athletes, event) {
   })
 }
 
-
-// Function Declaration
-
-function reverseString(string) {
-  var result
-  return result
-}
-
-
 // 2. Voltea un String
 
-
-
+function reverseString(string) {
+  return string.split("").reverse().join("");
+}
 
 // 3. Remueve numeros impares
 var arr = [1,2,3,4,5]
