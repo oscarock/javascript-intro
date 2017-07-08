@@ -69,12 +69,33 @@ function hola(name) {
 - Prototype chain
 
 
+// Como funciona this
+// Student('pepito', 23432) --> Window
+// student = new Student('pepito', 23432) --> this es un {} nuevo
+// student.speak('pepito', 23432) --> es el objeto sobre el que se invoco el metodo
+// var pedro = {}
+// Student.call(pedro), Student.apply(pedro) --> aca this es pedro
+
+
 // Funcion constructora
+// OOP en javascript
+
+function Person(race, weight) {
+  this.alive = true
+  this.race = race
+}
+
+Person.prototype.eat = function(food) {
+  console.log(`Much much estoy comiendo ${food} y me llamo ${this.name}`)
+}
 
 function Student(name, age) {
+  Person.call(this, 'hispanic', 2443)
   this.name = name
   this.age = age
 }
+
+Student.prototype = Object.create(Person.prototype)
 
 Student.prototype.speak = function() {
   console.log(`Hola soy ${this.name}`)
@@ -82,11 +103,9 @@ Student.prototype.speak = function() {
 
 // Prototype chain
 
-
-ozu.speak()
-
-
 juan = new Student('juan', 43)
+juan.speak()
+juan.eat()
 
 
 
@@ -120,3 +139,4 @@ myMap(function(element, num){
 
 
 
+//

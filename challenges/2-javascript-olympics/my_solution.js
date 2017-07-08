@@ -4,31 +4,34 @@
 
 
 // 0. Objetos
-var nombre1 = {
-	name: "oscar",
-	age: 26,
-	height: 1.75
+var pepito = {
+  name: 'pepito',
+  age: 34,
+  height: 423
 }
 
-var nombre2 = {
-	name: "maria",
-	age: 29,
-	height: 1.45
+var ozu = {
+  name: 'ozu',
+  age: 324,
+  height: 432
 }
 
 // 1. Añadir propiedades a objetos
-function addWinToAthlete(athletes, event){
-	athletes.forEach(function(athlete){
-		athlete.win = function(){
-			console.log(athlete.name + "won the" + event)
-		}
-	})
+
+function addWinToAthlete (athletes, event) {
+  athletes.forEach(function(athlete){
+    athlete.win = function() {
+      console.log(`${athlete.name} won the ${event}`)
+    }
+  })
 }
 
+
 // Function Declaration
-function reverseString(string){
-	//logica para volterar
-	return result
+
+function reverseString(string) {
+  var result
+  return result
 }
 
 
@@ -39,20 +42,19 @@ function reverseString(string){
 
 // 3. Remueve numeros impares
 var arr = [1,2,3,4,5]
-function removeOdds(arr){
-	return arr.filter(function(element){
-		element % 2 === 0
-	}
+
+function removeOdds(arr) {
+  return arr.filter(function(element){
+    return element % 2 === 0
+  })
 }
 
-
 // 4. Funcion constructora
-function Athlete(name,age,sport){
-this.name
-this.age
-this.sport
-} 
-
+function Athlete(name, age, sport) {
+  this.name = name
+  this.age = age
+  this.sport = sport
+}
 
 
 // 5. Reflexion
@@ -60,5 +62,6 @@ this.sport
 
 /////// Pruebas //////////
 var michaelPhelps = new Athlete("Michael Phelps", 29, "swimming")
+
 console.log(michaelPhelps.constructor === Athlete)
 console.log((michaelPhelps.name + " " + michaelPhelps.sport + " " + michaelPhelps.age) === 'Michael Phelps swimming 29')

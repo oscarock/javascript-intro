@@ -37,6 +37,20 @@ students.map(function(student){
 })
 
 
+function sayHi(name1, name2) {
+  return `soy ${name1} y me encuntro con ${name2}`
+}
+
+function sayHi(...names) {
+  return `soy ${names[0]} y me encuntro con ${names[1]}`
+}
+
+function createMessage(callback, names) {
+  var message = callback(...names)
+  return `Hola ${message}`
+}
+
+createMessage(sayHi, ['pepito', 'fasf'])
 
 
 
