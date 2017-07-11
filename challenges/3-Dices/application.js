@@ -38,9 +38,16 @@ Controller.prototype.event_botton_roll = function(){
     $('#roller button.roll').on('click', function() {
         // console.log(controller.model.roll_die())
         $('.die').each(function(index, dieHtml) {
-          var value = controller.model.roll_die
+          var value = controller.model.roll_die()
           $(dieHtml).text(value);
         })
+    })
+}
+
+Controller.prototype.delete_die = function(){
+    var controller = this
+    $('#roller button.delete').on('click', function(){
+        controller.view.content_delete_button()
     })
 }
 
@@ -49,12 +56,16 @@ View.prototype.content_add_button = function(){
     // console.log('entre')
 }
 
+View.prototype.content_delete_button = function(){
+    $('.die').last().remove()
+}
+
 Model.prototype.roll_die = function (){
     return Math.floor((Math.random()*6)+1)
     // console.log('entre')
 }
 
-
-var play_game = new Controller(new Model(), new View())
-play_game.event_botton_add()
-play_game.event_botton_roll()
+var play = new Controller(new Model(), new View())
+play.event_botton_add()
+play.event_botton_roll()
+play.delete_die()
