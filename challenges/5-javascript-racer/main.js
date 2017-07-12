@@ -8,14 +8,27 @@ function Model(){}
 function View(){}
 
 Controller.prototype.event_keyboard_player1 = function() {
-	$(document).keyup(function(event){ 
+	var a = 1
+	$(document).keyup(function(event){
 	    if (event.keyCode == 80) {
-	    	$('#player1_strip td').each(function(e){
-	    		console.log(e)
-	    	})
-	    	// $('#player1_strip td.active').removeClass("active") 
+			// console.log($('#player1_strip td').hasClass('inactive active'))
+			// if($('#player1_strip td').hasClass('inactive') === 'inactive') {
+			// 	$('#player1_strip td').removeClass('inactive')
+			// }
+
+			// console.log(a++)
+			// console.log('valor' + a);
+			// console.log($('.racer_table td').attr('class'))
+			// console.log($('#player1_strip td').hasClass('inactive'))
+			// if ($('#player1_strip td').hasClass('inactive')) {
+			// 	$('#player1_strip td').eq(a++).removeClass('inactive')
+			// }
+			$('#player1_strip').find('td').eq(a++).addClass(function(){
+				$(this).addClass('active')
+			})
+			// console.log($('#player1_strip td').eq(a).removeClass('active'))
 	    }
-	}); 
+	});
 }
 
 
