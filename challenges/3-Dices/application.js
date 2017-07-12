@@ -66,6 +66,7 @@ Model.prototype.roll_die = function (){
 }
 
 var play = new Controller(new Model(), new View())
+play.init()
 play.event_botton_add()
 play.event_botton_roll()
 play.delete_die()
