@@ -5,20 +5,25 @@
   <title>Elements</title>
 </head>
 <style>
-  #my-button {
+/*#my-button {
+  color: green;
+}*/
+  button {
     color: green;
   }
 </style>
 <body>
-  <button class="button-class" id="my-button" name="button">Click Me!</button>
+  <button class="button-class"  name="button">Click Me!</button>
   <button class="button-class" id="my-button" name="bla">Click Me!</button>
-  <button class="button-class" id="my-button" name="button">Click Me!</button>
-  <button class="button-class" id="my-button" name="blablabalb">Click Me!</button>
-</body>
+  <button class="button-class"
+  name="button">Click Me!</button>
+  <button class="button-class"
+  name="blablabalb">Click Me!</button>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-    var buttonTag = document.getElementsByTagName('button')
-    var buttonId = document.getElementById('my-button')
-    var button3Class document.getElementsByClassName('button-class')
+  var buttonTag = document.getElementsByTagName('button')
+  var buttonId = document.getElementById('my-button')
+  var button3Class = document.getElementsByClassName('button-class')
     // document.querySelector()
     //document.querySelectorAll( )
     // element.innerHTML
@@ -27,4 +32,5 @@
     // element.getAttribute
     // element.addEventListener
   </script>
+</body>
 </html>

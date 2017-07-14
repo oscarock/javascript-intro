@@ -80,20 +80,57 @@ function hola(name) {
 // Funcion constructora
 // OOP en javascript
 
+
+function View() {
+
+}
+
+function Controller(model, view) {
+  this.model = model
+  this.view = view
+}
+
+Controller.prototype.listenToRollDie = function() {
+
+}
+
+View.prototype.change_die_value = function(dieHtml) {
+
+}
+
 function Person(race, weight) {
   this.alive = true
   this.race = race
 }
 
+
 Person.prototype.eat = function(food) {
   console.log(`Much much estoy comiendo ${food} y me llamo ${this.name}`)
 }
 
-function Student(name, age) {
-  Person.call(this, 'hispanic', 2443)
+function Person(race, weight) {
+  this.alive = true
+  this.race = race
+}
+
+function Student(name, age, race, weight) {
+  // this = {}.constructor = Student
+  Person.call(this, race, weight)
+  // this = {alive: true, race: 'hispanic'}
   this.name = name
   this.age = age
+  // {alive: true, race: 'hispanic', name: 'juan', age: 5234}
 }
+
+juan = new Student('juan', 43, 'hispanic', 342)
+// juan = {}
+
+// Student()
+// Student.call(juan)
+
+
+
+
 
 Student.prototype = Object.create(Person.prototype)
 
