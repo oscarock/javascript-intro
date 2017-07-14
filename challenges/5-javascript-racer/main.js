@@ -8,6 +8,12 @@ function Model(){}
 function View(){}
 
 
+Controller.prototype.create_race = function (num){
+	for(i=0; i<num; i++){
+        var rows = $('.racer_table tr').append('<td></td>')
+    }
+}
+
 
 
 Controller.prototype.event_keyboard_player1 = function() {
@@ -16,6 +22,7 @@ Controller.prototype.event_keyboard_player1 = function() {
 	    if (event.keyCode == 80) {
 			if($('#player1_strip td').last().hasClass('active')){
 				alert('gano player 1')
+				$(document).off('keyup');
 			}
 			$('#player1_strip').find('td').eq(a++).addClass(function(){
 					$(this).addClass('active')
@@ -32,6 +39,7 @@ Controller.prototype.event_keyboard_player2 = function() {
 	    if (event.keyCode == 81) {
 			if($('#player2_strip td').last().hasClass('active')){
 				alert('gano player 2')
+				$(document).off('keyup');
 			}
 
 			$('#player2_strip').find('td').eq(a++).addClass(function(){
@@ -58,6 +66,7 @@ Controller.prototype.time_out = function(){
 }
 
 var play = new Controller()
+play.create_race(15)
 play.event_keyboard_player1()
 play.event_keyboard_player2()
 play.button_restard()
