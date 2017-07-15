@@ -21,108 +21,109 @@
   </ul>
 </body>
 <script>
-  // $("[href='http://tunaranja.co']")
-  //   .addEventListener('click', function(event){
+  // document.querySelector("[href='http://tunaranja.co']").addEventListener('click', function(event){
   //   event.preventDefault()
+  //   event.stopPropagation();
+  //   alert('Super tu naranjas')
   // })
-  document.getElementById('breeds').addEventListener('mouseenter', function(ev) {
-    this.style.backgroundColor = '#999'
-    this; //-> element with id "breeds"
-  }, false);
-  //
-  // document.getElementById('breeds').addEventListener('mouseleave',function(ev) {
+
+
+  // document.getElementById('breeds').addEventListener('mouseenter', function(event) {
+  //   this.style.backgroundColor = 'tomato'
+  //   this; //-> element with id "breeds"
+  // }, false);
+  // //
+  // document.getElementById('breeds').addEventListener('mouseleave',function(event) {
+  //   // console.log(peito)
   //   this.style.fontFamily = 'helvetica'
   //   this; //-> element with id "breeds
   // }, false)
-  //
-  //
-  // var breeds = document.getElementById('breeds');
-  //
-  // //register a simple handler
+
+  // //
+  //  var breeds = document.getElementById('breeds');
+  // //
+  // // //register a simple handler
   // breeds.addEventListener('click', function(ev) {
   //   console.log('clicked!');
   // }, false);
-  //
-  // //removing a handler that looks identical
+  // //
+  // // //removing a handler that looks identical
   // breeds.removeEventListener('click', function(ev) {
   //   console.log('clicked!');
   // }, false);
-  //
-  // ///////// Do this instead
-  //
+  // //
+  // // ///////// Do this instead
+  // //
   // var handler = function(ev) {
   //   console.log('clicked!');
   // }
-  //
+  // //
   // breeds = document.getElementById('breeds');
-  //
-  // //register a simple handler
+  // //
+  // // //register a simple handler
   // breeds.addEventListener('click', handler, false);
-  //
-  // //and remove the registration
+  // //
+  // // //and remove the registration
   // breeds.removeEventListener('click', handler, false);
-  //
-  // /////////////////////////// Event Object
-  //
-  // var handler = function() {
+  // //
+  // // /////////////////////////// Event Object
+  // //
+  // var handler = function(event) {
   //   console.log(event)
-  //
-  //
-  //   // ev.preventDefault();
-  //   // ev.stopPropagation();
+
+
+  //   event.preventDefault(); 1
+  //   event.stopPropagation();
   // }
-  //
+  // //
   // document.getElementById('breeds').addEventListener('click', handler, false);
-  //
-  // ///////// Default Actions
-  //
-  // /*
-  //   - Submit
-  //   - click
-  //   - mouseDown
-  //   - contextMenu
-  //   - keyDown/keypress
-  // */
-  //
+  // //
+  // // ///////// Default Actions
+  // //
+  // // /*
+  // //   - Submit
+  // //   - click
+  // //   - mouseDown
+  // //   - contextMenu
+  // //   - keyDown/keypress
+  // // */
+  // //
   // var click_handler = function(ev) {
   //   //stops window.location from being set
   //   ev.preventDefault();
   // };
-  //
+  // //
   // breeds.addEventListener('click', function(ev) {
   // //click, keypress, etc
   //   ev.type;
-  //
+
   //   //element event was invoked on
   //   ev.target;
-  //
+
   //   //current element in propagation
   //   ev.currentTarget;
-  //
+
   //   ev.timestamp;
   //   ev.bubbles;
   //   ev.cancelable;
   //   ev.eventPhase;
   // }, false);
-  //
-  //
-  // ///// Delegation Propagation
-  //
-  //
-  // document.body.addEventListener("click",
-  //   function(ev){
-  //
-  //     if(ev.target.nodeName === "A") {
-  //       console.log("clicked on an anchor!");
-  //       // do stuff!
-  //     }
-  //
-  //   }, false);
-  //
-  // /// With jquery
-  // $('body').on('click','div', function() {
-  //   console.log('Here I am!');
-  // });
+  // //
+
+  // // ///// Delegation Propagation
+  // //
+  // //
+  // document.body.addEventListener("click", function(ev){
+  //   if(ev.target.nodeName === "A") {
+  //     console.log("clicked on an anchor!");
+  //     // do stuff!
+  //   }
+  // }, false);
+  // //
+  // // /// With jquery
+  //   $('body').on('click','div', function() {
+  //     console.log('Here I am!');
+  //   });
 </script>
 
 

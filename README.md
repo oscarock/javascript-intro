@@ -2,6 +2,12 @@
 
 ### Ejercicios
 
+
+zdfdsfasd
+
+fasdfasdf
+
+
 - [Variables y Objetos](challenges/1-js-variables-objects)
 - [Olimpiadas JS](challenges/2-javascript-olympics)
 - [Dados](challenges/3-Dices)
