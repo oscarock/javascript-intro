@@ -24,6 +24,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     pg (0.20.0)
+    pg (0.20.0-x64-mingw32)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
@@ -65,6 +66,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   activerecord
@@ -81,4 +83,4 @@ DEPENDENCIES
   sinatra-contrib
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
