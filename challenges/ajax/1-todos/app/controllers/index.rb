@@ -21,13 +21,13 @@ get '/todo/:id/delete' do
 	todo = Todo.find(params[:id])
 	todo.destroy
 	content_type :json
-	{state: 'delete_ok'}.to_json
+	{todo: todo,state: 'delete_ok'}.to_json
 end
 
 get '/todo/:id/completed' do
 	todo = Todo.find(params[:id])
 	completed = todo.update(completed: true)
 	content_type :json
-	{completed: completed}.to_json
+	{todo: todo,completed: completed}.to_json
 end
 

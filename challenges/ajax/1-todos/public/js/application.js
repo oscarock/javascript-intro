@@ -34,42 +34,45 @@ function createTodo(){
         todo_content: form.todo_content.value
       },
     }).done(function(response) {
-      console.log(response)
-      // $('#table-1').append(`<tr>
-      //   <td>${response.new_todo.id}</td>
-      //   <td>${response.new_todo.todo_content}</td>
-      //   <td>${response.new_todo.completed}</td>
-      //   <td><a class="complete" href="/todo/${response.new_todo.id}/completed">Complete</a> ||
-      //   <a href="/todo/${response.new_todo.id}/delete">Eliminar</a>
-      //   </td>
-      //   </tr>`)
+      if(response.error){
+        $('.errors').html(response.error).show()
+      }
+      $('#table-1').append(`<tr id="${response.new_todo.id}">
+        <td>${response.new_todo.id}</td>
+        <td>${response.new_todo.todo_content}</td>
+        <td>${response.new_todo.completed}</td>
+        <td><a class="complete btn btn-primary" href="/todo/${response.new_todo.id}/completed">Complete</a>
+        <a class="delete btn btn-danger" href="/todo/${response.new_todo.id}/delete">Eliminar</a>
+        </td>
+        </tr>`)
     })
   })
 }
 
 function completeTodo(){
-  $('.complete').on('click', function(e){
+  $('#table-1').on('click','.complete', function(e){
     e.preventDefault()
     var link = this
     $.ajax({
       method: 'GET',
       url: link.href,
   }).done(function(response){
-      $('tr:last').find('td').eq(2).html(response.completed)
+      $('tr#'+response.todo.id).find('td').eq(2).html(response.completed)
     })
   })
 }
 
 function deleteTodo(){
-  $('.delete').on('click',function(e){
+  $('#table-1').on('click','.delete',function(e){
     e.preventDefault()
     var link = this
     $.ajax({
       method: 'GET',
       url: link.href,
   }).done(function(response){
+    console.log('tr#'+response.todo.id)
       if(response.state === 'delete_ok'){
-        $('tr:last').remove()
+        $('tr#'+response.todo.id).remove()
       }
     })
   })

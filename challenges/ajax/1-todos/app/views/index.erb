@@ -1,29 +1,20 @@
-<div id="todo">
-  <div class="toolbox">
-    <form action="/add_todo" method="post">
-      <input type="text" class="todo" name="todo_content" value="Put your todo item here!"/><br>
-      
-      <input type="submit" value="Add Todo"/>
-      <!-- <button class="add" type="submit">Add Todo</button> -->
-    </form>
-  </div>
-
-  <div class="todo_list">
-
-  </div>
-
-  <div id="todo_template" style="display: none;">
-    <div class="todo">
-      <h2>Todo Name</h2>
-      <ul>
-        <!-- <li><a href="#" class="delete">Delete</a></li> -->
-        <li><a href="#" class="complete">Complete</a></li>
-      </ul>
+<div class="container ancho">
+  <div class="row">
+    <div class="form-group">
+    <div class="alert alert-danger errors" role="alert" style="display: none">
+      <strong>Oh snap!</strong> Change a few things up and try submitting again.
+    </div>
+    <br>
+      <form class="form" action="/add_todo" method="post">
+        <input type="text" class="form-control" name="todo_content" placeholder="Put your todo item here!" value="" />
+        <br>
+        <input type="submit" class="btn btn-success" value="Add Todo"/>
+      </form>     
     </div>
   </div>
   <br>
-  <div>
-      <table border="1" id="table-1">
+  <div class="row">
+   <table class="table table-hover" id="table-1">
         <tr>
           <th>ID</th>
           <th>Nombre</th>
@@ -31,18 +22,16 @@
           <th>Acciones</th>
         </tr>
           <% @todos.each do |todo| %>
-        <tr>
+        <tr id="<%= todo.id %>">
           <td><%= todo.id %></td>
           <td><%= todo.todo_content %></td>
           <td><%= todo.completed %></td>
           <td>
-            <% if todo.completed != true %>
-              <a class="complete" href="/todo/<%= todo.id %>/completed">Complete</a> ||
-            <% end %>  
-            <a class="delete" href="/todo/<%= todo.id %>/delete">Eliminar</a>
+            <a class="complete btn btn-primary" href="/todo/<%= todo.id %>/completed">Complete</a>
+            <a class="delete btn btn-danger" href="/todo/<%= todo.id %>/delete">Eliminar</a>
           </td>
           <% end %>
         </tr>
       </table> 
-  </div>
+  </div>  
 </div>

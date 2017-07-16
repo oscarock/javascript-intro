@@ -11,3 +11,17 @@
 .todo.complete h2 {
   text-decoration: line-through;
 }
+
+/*nuevos estilos*/
+.container.ancho {
+    width: 50%;
+}
+
+.form{
+	text-align: center;
+}
+
+.errors{
+	margin: 25px;
+    text-align: center;
+}
