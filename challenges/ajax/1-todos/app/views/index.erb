@@ -16,14 +16,14 @@
     <div class="todo">
       <h2>Todo Name</h2>
       <ul>
-        <li><a href="#" class="delete">Delete</a></li>
+        <!-- <li><a href="#" class="delete">Delete</a></li> -->
         <li><a href="#" class="complete">Complete</a></li>
       </ul>
     </div>
   </div>
   <br>
   <div>
-      <table border="1">
+      <table border="1" id="table-1">
         <tr>
           <th>ID</th>
           <th>Nombre</th>
@@ -36,11 +36,13 @@
           <td><%= todo.todo_content %></td>
           <td><%= todo.completed %></td>
           <td>
-            <a href="/todo/<%= todo.id %>/completed">Complete</a> ||
-            <a href="/todo/<%= todo.id %>/delete">Eliminar</a>
+            <% if todo.completed != true %>
+              <a class="complete" href="/todo/<%= todo.id %>/completed">Complete</a> ||
+            <% end %>  
+            <a class="delete" href="/todo/<%= todo.id %>/delete">Eliminar</a>
           </td>
           <% end %>
-        </tr> 
+        </tr>
       </table> 
   </div>
 </div>
