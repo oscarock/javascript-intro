@@ -9,6 +9,7 @@ post '/add_todo' do
 	if new_todo.save 
 		{new_todo: new_todo}.to_json
 	else
+		status 400 
 		{error: new_todo.errors.full_messages}.to_json
 	end
 

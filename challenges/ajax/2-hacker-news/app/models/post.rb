@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  has_many :votes
+	validates :title,presence: true		
+	has_many :votes
 
   def points
     votes.sum(:value)

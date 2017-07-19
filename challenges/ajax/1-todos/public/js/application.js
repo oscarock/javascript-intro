@@ -45,6 +45,9 @@ function createTodo(){
         <a class="delete btn btn-danger" href="/todo/${response.new_todo.id}/delete">Eliminar</a>
         </td>
         </tr>`)
+    }).fail(function(response) {
+      console.log("Hola")
+      console.log(response)
     })
   })
 }

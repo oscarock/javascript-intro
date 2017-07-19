@@ -11,9 +11,7 @@
 
 <div class='post-container'>
   <% @posts.each do |post| %>
-
-    <%= erb :"_post", layout: false, locals: {post: post} %>
-
+    <%= erb :"_post", layout: false, locals: {new_post: post} %>
   <% end %>
 </div>
 
