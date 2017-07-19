@@ -1,4 +1,81 @@
 $(document).ready(function() {
+  $('#posts').on('submit', function(event) {
+    // Fresco yo mismo voy hacer el request
+    event.preventDefault()
+    console.log('Yo tengo el control')
+
+
+    // Sacar la informacion
+    var url = this.action
+    var title = this.title.value
+        // var formData = $(this).serialize()
+        // var title = $(this).find('input[name="title"]').val()
+        //Ajax
+    // Voy a hacer el request
+     $.ajax({
+        method: 'POST',
+        url: this.action,
+        data: {
+          title: title
+        }
+     }).done(function(response) {
+        $('.post-container').append(response)
+     })
+
+  })
+
+
+// Event delagation
+  $('.post-container').on('click', '.vote-button', function(event) {
+
+    event.preventDefault()
+    // console.log('Paramos el a')
+
+    $.ajax({
+      method: 'GET',
+      url: this.href
+    }).done(function(response) {
+      $('.post-container').find(`#${response.id}`).find('.points').html(`${response.votes_count}`)
+    })
+
+  })
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
 
   // Event listeners
   $('.post-container').on('click', '.vote-button', function(e){
@@ -50,7 +127,8 @@ $(document).ready(function() {
       method: 'POST',
       url: url,
       data: formData
-    }).done(function(response) {
+    })
+    .done(function(response) {
       // Actualizar el DOM
       console.log('cuandooo??')
       // console.log(response)
@@ -65,3 +143,49 @@ $(document).ready(function() {
   })
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

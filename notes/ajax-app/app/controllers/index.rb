@@ -8,16 +8,11 @@ get '/posts' do
 end
 
 get '/posts/:id/vote' do
-  p params
+  p 'SI llegamos a votar un post'
   post = Post.find(params[:id])
   post.votes.create(value: 1)
   content_type :json
-  if params[:error] == 'true'
-    status 404
-    {valor: 'La embarro'}.to_json
-  else
-    {votes: post.points}.to_json
-  end
+  {votes_count: post.votes.count, id: post.id}.to_json
 end
 
 delete '/posts/:id' do
@@ -25,14 +20,16 @@ delete '/posts/:id' do
 end
 
 post '/posts' do
-  post = Post.new( title: params["title"],
+  p '*' * 50
+  p params
+  @post = Post.new( title: params["title"],
                username: Faker::Internet.user_name,
                comment_count: rand(1000) )
-  if post.save
-    erb :"_post", layout: false, locals: {post: post}
+  if @post.save
+    erb :"_post",layout: false, locals: {post: @post}
   else
-    content_type :json
-    {error: post.errors.full_messages}.to_json
+    @error = post.errors.full_messages
+    erb :index
   end
 end
 
