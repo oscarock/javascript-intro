@@ -14,7 +14,9 @@
     <%= erb :"_post", layout: false, locals: {new_post: post} %>
   <% end %>
 </div>
-
+<br>
+<br>
+<div id="error"></div>
 <form id="posts" method="post" action="/posts">
   <input type="text" name="title" placeholder="title" value="">
   <input type="submit" value="submit new post">

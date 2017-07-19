@@ -1,6 +1,7 @@
 $(document).ready(function() {
   createPost()
   countPost()
+  deletePost()
 });
 
 function createPost(){
@@ -17,7 +18,7 @@ function createPost(){
 			// console.log(response)
 			$('.post-container').append(response)
 		}).fail(function(response){
-			console.log("fail")
+			$('#error').html(JSON.parse(response.responseText).error[0])
 		})
 	})	
 }
@@ -30,7 +31,23 @@ function countPost(){
 			method: 'GET',
 			url: link.href
 		}).done(function(response){
-			console.log(response)
+			// console.log($(`article#${response.post_id} .points`))
+			$(`article#${response.post_id} .points`).html(response.vote_count)
+			$(`article#${response.post_id} .vote-button`).css({'color':'green'})
+		})
+	})
+}
+
+function deletePost(){
+	$('.delete').on('click',function(e){
+		e.preventDefault()
+		var link = this
+		$.ajax({
+			method: 'GET',
+			url: link.href
+		}).done(function(response){
+			$(`article#${response.post_delete}`).remove()
+			console.log('borre')
 		})
 	})
 }
